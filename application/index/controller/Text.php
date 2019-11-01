@@ -9,8 +9,8 @@ class Text extends Common {
     public function index(){
         $user= User::get(6);
         $a=new User();
-        $data=$user->comments()->select();
-        dump($data);
+        $user=$user->comments()->select();
+        dump($user);
     }
 
     public function login(){
