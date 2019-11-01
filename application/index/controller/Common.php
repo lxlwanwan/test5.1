@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+use think\facade\Request;
 
 /**
  * Created by PhpStorm.
@@ -16,9 +17,10 @@ class Common extends Controller{
 
 
     protected function isGet(){
-
+        if(Request::isPost()){
+           return '请求错误！！';
+        }
         return 'isGet';
-
     }
 
     protected function isPost(){

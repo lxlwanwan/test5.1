@@ -5,7 +5,7 @@ namespace app\index\controller;
 class Text extends Common {
 
     protected $beforeActionList=[
-        'detail'=>['except'=>'posts'],
+        'isGet'=>['except'=>'posts'],
         'comment' =>['only'=>'test,index']
 
     ];
