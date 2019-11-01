@@ -14,9 +14,9 @@ class User extends Model{
     /**
      * @return \think\model\relation\HasMany 1对多关联
      */
-    public static function comments(){
+    public  function comments(){
 
-        return self::hasMany('post','uid','id');
+        return $this->hasMany('post','uid','id');
     }
 
 
