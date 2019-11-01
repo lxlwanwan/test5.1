@@ -14,19 +14,4 @@ class Common extends Controller{
 
 
 
-
-
-    protected function isGet(){
-        if(Request::isPost()){
-           return '请求错误！！';
-        }
-        return 'isGet';
-    }
-
-    protected function isPost(){
-
-        return 'isPost';
-
-    }
-
 }
