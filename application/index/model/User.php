@@ -23,4 +23,9 @@ class User extends Model{
     }
 
 
+    public function onehas(){
+        return $this->hasOne('post','uid','id');
+    }
+
+
 }

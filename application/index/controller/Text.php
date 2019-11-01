@@ -9,7 +9,7 @@ class Text extends Common {
     public function index(){
         $user= User::get(6);
         $a=new User();
-        $user=$a->comments(6)->select();
+        $user=$user->onehas()->find();
         dump($user);
     }
 
