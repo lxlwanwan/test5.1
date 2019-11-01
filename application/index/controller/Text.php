@@ -15,37 +15,37 @@ class Text extends Controller{
 
     public function detail(){
 
-        return 'detail!';
+        echo 'detail!';
     }
 
     public function comment(){
 
-        return 'comment!';
+        echo 'comment!';
     }
 
     public function info(){
 
-        return 'info!';
+        echo 'info!';
     }
 
     public function posts(){
 
-        return 'posts!';
+        echo 'posts!';
     }
 
     public function hello(){
 
-        return 'hello!';
+        echo 'hello!';
     }
 
     public function test(){
 
-       return 'test!';
+       echo 'test!';
     }
 
     public function index(){
 
-        return 'index!';
+        echo 'index!';
     }
 
 
