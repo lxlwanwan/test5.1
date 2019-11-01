@@ -2,13 +2,11 @@
 namespace app\index\controller;
 
 
-use think\Controller;
-
-class Text extends Controller{
+class Text extends Common {
 
     protected $beforeActionList=[
-        'detail'=>['except'=>'info,posts'],
-        'hello' =>['only'=>'test,index']
+        'isGet'=>['except'=>'info,posts'],
+        'isPost' =>['only'=>'test,index']
 
     ];
 
