@@ -7,8 +7,7 @@ use think\Controller;
 class Text extends Controller{
 
     protected $beforeActionList=[
-        'detail',
-        'comment'=>['except'=>'info,posts'],
+        'detail'=>['except'=>'info,posts'],
         'hello' =>['only'=>'test,index']
 
     ];
