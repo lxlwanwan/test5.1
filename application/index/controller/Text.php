@@ -45,5 +45,10 @@ class Text extends Common {
         echo 'index!';
     }
 
+    public function login(){
+
+        return 'login';
+
+    }
 
 }
