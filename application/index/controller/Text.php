@@ -8,7 +8,7 @@ class Text extends Common {
 
     public function index(){
         $user= User::get(6);
-        $data=$user->User::comments()->select();
+        $data=$user::comments()->select();
         dump($data);
     }
 
