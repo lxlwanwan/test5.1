@@ -41,7 +41,7 @@ class Text extends Common {
     }
 
     public function index(){
-
+        $this->isGet();
         echo 'index!';
     }
 
