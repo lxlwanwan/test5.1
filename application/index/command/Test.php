@@ -1,7 +1,7 @@
 <?php
 namespace app\index\command;
 
-use app\index\model\User;
+use app\index\model\Users;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
@@ -28,7 +28,7 @@ class Test extends Command{
         $sum=mt_rand(10,99);
         $name='张三'.$sum;
         $time = date('Y-m-d H:i:s',time());
-        $state = User::create(['name'=>$name,'phone'=>'187829228'.$sum,'test'=>'定时任务测试'.$time]);
+        $state = Users::create(['name'=>$name,'phone'=>'187829228'.$sum,'test'=>'定时任务测试'.$time]);
 
 
     }
