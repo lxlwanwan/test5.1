@@ -17,7 +17,8 @@ Route::get('think', function () {
 
 return [
     '__domain__'=>[
-        'www'=>'index',
-        'admin'=>'admin',
+        'www'   =>'index',
+        'admin' =>'admin',
+        'api'   =>'api'
     ]
 ];
