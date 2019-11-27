@@ -37,6 +37,10 @@ class ComposerStaticInitf134d6d98309cafd0ddb0040b36d7af9
         array (
             'GatewayWorker\\' => 14,
         ),
+        'C' => 
+        array (
+            'Curl\\' => 5,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -72,6 +76,10 @@ class ComposerStaticInitf134d6d98309cafd0ddb0040b36d7af9
         'GatewayWorker\\' => 
         array (
             0 => __DIR__ . '/..' . '/workerman/gateway-worker/src',
+        ),
+        'Curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl',
         ),
     );
 

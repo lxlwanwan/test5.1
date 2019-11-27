@@ -14,4 +14,5 @@ return array(
     'Workerman\\' => array($vendorDir . '/workerman/workerman'),
     'Phinx\\' => array($vendorDir . '/topthink/think-migration/phinx/src/Phinx'),
     'GatewayWorker\\' => array($vendorDir . '/workerman/gateway-worker/src'),
+    'Curl\\' => array($vendorDir . '/php-curl-class/php-curl-class/src/Curl'),
 );
