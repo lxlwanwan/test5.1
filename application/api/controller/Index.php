@@ -17,7 +17,6 @@ class Index extends Controller{
 
         return 'api接口！';
 
-
     }
 
 
