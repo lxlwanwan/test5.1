@@ -10,5 +10,6 @@
 // +----------------------------------------------------------------------
 
 return [
-   'test'=>'app\index\command\Test'
+   'test'=>'app\index\command\Test',
+    'access'=>'app\api\command\Access'
 ];
