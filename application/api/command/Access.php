@@ -27,6 +27,7 @@ class Access extends Command{
 
     protected function execute(Input $input, Output $output)
     {
+        Log::write('获取access_token定时任务！');
         $set = Setting::where('key','access_token')->find();
         if($set){
             if(empty($set['value']) || time()-$set['time'] > 6899){
@@ -42,12 +43,11 @@ class Access extends Command{
                     Log::write('Error: ' . $url->errorCode . ': ' . $url->errorMessage . "\n");
                 } else {
                     $arr=$url->response;
-                    $arr=json_decode($arr);
-                    if(isset($arr['access_token'])){
-                        Setting::where('key','access_token')->update(['value'=>$arr['access_token'],'time'=>time()]);
+                    if(isset($arr->access_token)){
+                        Setting::where('key','access_token')->update(['value'=>$arr->access_token,'time'=>time()]);
                         Log::write('Success：Access_token更新成功，时间：'.date('Y-m-d H:i:s',time()));
                     }else{
-                        Log::write('Error: ' . $arr['errcode'] . ': ' . $arr['errmsg'] . "\n");
+                        Log::write('Error: ' . $arr->errcode . ': ' . $arr->errmsg . "\n");
                     }
                 }
             }
