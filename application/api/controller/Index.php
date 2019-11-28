@@ -1,6 +1,7 @@
 <?php
 namespace app\api\controller;
 use think\Controller;
+use think\facade\Config;
 
 /**
  * Created by PhpStorm.
@@ -14,7 +15,7 @@ class Index extends Controller{
 
 
     public function index(){
-
+        $data= Config::get('Setting.weixin.token');
         return 'api接口！';
 
     }

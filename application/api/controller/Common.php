@@ -23,7 +23,6 @@ class Common extends Controller{
         $nonce =input('nonce')??'';
         $echostr =input('echostr')??'';
         $data= [$nonce,$token,$timestamp];
-        dump($data);die;
         sort($data);
         $data = sha1(implode($data));
         if($data == $signature && $echostr ){
