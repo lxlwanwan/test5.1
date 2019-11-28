@@ -10,14 +10,11 @@ use think\Controller;
  */
 class Common extends Controller{
 
-    const Token='4i274x7xl2usutzzpdts';
-
-
     /**
      * 微信token验证
      */
     public function verify_token(){
-        $token=self::Token;
+        $token=Config::get('setting.weixin.token');
         $signature = input('signature')??'';
         $timestamp = input('timestamp')??'';
         $nonce =input('nonce')??'';

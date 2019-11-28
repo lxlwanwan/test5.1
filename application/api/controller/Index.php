@@ -15,8 +15,13 @@ class Index extends Controller{
 
 
     public function index(){
-        $data= Config::get('setting.weixin.token');
-        return $data;
+        $data=[
+            'grant_type'=>'client_credential',
+            'appid'=>config('setting.weixin.appid'),
+            'secret'=>config('setting.weixin.AppSecret')
+        ];
+        $url =config('setting.weixin.url_token').http_build_query($data);
+        return $url;
 
     }
 
