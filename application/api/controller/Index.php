@@ -16,7 +16,7 @@ class Index extends Controller{
 
     public function index(){
         $data= Config::get('setting.weixin.token');
-        return 'api接口！';
+        return $data;
 
     }
 
