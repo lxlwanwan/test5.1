@@ -33,6 +33,9 @@ class Index extends Controller{
                     Log::write('Error: ' . $url->errorCode . ': ' . $url->errorMessage . "\n");
                 } else {
                     $arr=$url->response;
+                    dump($arr);
+                    dump($url->requestHeaders);
+                    dump($url->responseHeaders);die;
                     $arr=json_decode($arr);
                     if(isset($arr['access_token'])){
                         Setting::where('key','access_token')->update(['value'=>$arr['access_token'],'time'=>time()]);
