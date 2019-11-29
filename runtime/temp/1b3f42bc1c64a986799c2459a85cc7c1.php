@@ -1,4 +1,4 @@
-<?php /*a:1:{s:53:"/home/www/tp5/application/admin/view/index/index.html";i:1567068371;}*/ ?>
+<?php /*a:1:{s:53:"/home/www/tp5/application/admin/view/index/index.html";i:1574835491;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
