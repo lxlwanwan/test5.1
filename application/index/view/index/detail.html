@@ -1,49 +1,5 @@
-<!DOCTYPE html>
-<html>
-</html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Creative - Bootstrap Portfolio Theme</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    {load href="/static/home/vendor/bootstrap/css/bootstrap.min.css" /}
-    {load href="/static/home/vendor/font-awesome/css/font-awesome.min.css" /}
-    {load href="/static/home/vendor/owl.carousel/assets/owl.carousel.css" /}
-    {load href="/static/home/vendor/owl.carousel/assets/owl.theme.default.css" /}
-    {load href="/static/home/css/style.default.css" /}
-    {load href="/static/home/css/custom.css" /}
-    {load href="/static/home/img/favicon.png" /}
-</head>
-<body>
-<div id="all">
-    <div class="container-fluid">
-        <div class="row row-offcanvas row-offcanvas-left">
-            <!--   *** SIDEBAR ***-->
-            <div id="sidebar" class="col-md-4 col-lg-3 sidebar-offcanvas">
-                <div class="sidebar-content">
-                    <h1 class="sidebar-heading"> <a href="index.html">我的博客</a></h1>
-                    <p class="sidebar-p">程序生涯碰见过的问题。。。 </p>
-                    <p class="sidebar-p">四川 成都 </p>
-                    <ul class="sidebar-menu">
-                        <!-- Link-->
-                        <li class="sidebar-item"><a href="index.html" class="sidebar-link active">首页</a></li>
-                        <!-- Link-->
-                        <li class="sidebar-item"><a href="about.html" class="sidebar-link">关于网站</a></li>
-                        <!-- Link-->
-                        <li class="sidebar-item"><a href="contact.html" class="sidebar-link">联系我</a></li>
-                    </ul>
-
-                    <div class="copyright text-center text-md-left">
-                        <p class="credit">
-                            蜀ICP备19009579号<br/>地址&nbsp;:&nbsp;成都市世纪城南路599号<br/>蜀ICP备19009579号-1
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--   *** SIDEBAR END ***  -->
-            <!--   *** DETAIL ***-->
+{extend name="layout:layout" /}
+{block name="content"}
             <div class="col-md-8 col-lg-9 content-column white-background">
                 <div class="small-navbar d-flex d-md-none">
                     <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
@@ -93,15 +49,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- JavaScript files-->
-{load href="/static/home/vendor/jquery/jquery.min.js" /}
-{load href="/static/home/vendor/popper/umd/popper.min.js" /}
-{load href="/static/home/vendor/bootstrap/js/bootstrap.min.js" /}
-{load href="/static/home/vendor/jquery.cookie/jquery.cookie.js" /}
-{load href="/static/home/vendor/owl.carousel/owl.carousel.min.js" /}
-{load href="/static/home/vendor/masonry-layout/masonry.pkgd.min.js" /}
-{load href="/static/home/js/front.js" /}
-</body>
+{/block}
