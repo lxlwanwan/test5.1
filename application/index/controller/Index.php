@@ -13,13 +13,49 @@ use app\index\model\Users;
 
 class Index extends Controller
 {
+
+
+    /**
+     * @return mixed 首页
+     */
     public function index()
     {
         return $this->fetch();
-
     }
 
-    public function hello()
+
+    /**
+     * @return string联系我
+     */
+    public function contact()
+    {
+
+        return $this->fetch();
+    }
+
+
+    /**
+     * 详情
+     */
+    public function detail(){
+
+        return $this->fetch();
+    }
+
+
+    /**
+     * 关于网站
+     */
+    public function about(){
+
+        return $this->fetch();
+    }
+
+
+    /**
+     * 测试
+     */
+    public function test()
     {
 
         $im=new Import();
@@ -33,16 +69,5 @@ class Index extends Controller
 
         return 'hello';
     }
-
-    //popen()这个函数要打开，开启在php.ini的：disable_functions 找到并删除该函数
-    public function set_linux(){
-        $user = Users::get(11);
-        $date = $user->has_one()->find();
-        dump($date);
-        $data=Users::hasWhere('has_one',['id'=>1])->find();
-        dump($data);die;
-        return $this->fetch();
-    }
-
 
 }
