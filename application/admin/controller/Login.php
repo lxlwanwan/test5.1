@@ -12,9 +12,8 @@ use think\facade\Request;
 class Login extends Controller{
 
 
-
     /**
-     * 登陆
+     * @return mixed 登陆
      */
     public function login(){
         if(Request::isGet()){
