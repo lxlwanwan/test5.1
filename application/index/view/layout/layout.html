@@ -33,7 +33,20 @@
                         <!-- Link-->
                         <li class="sidebar-item"><a href="{:url('index/contact')}" class="sidebar-link">联系我</a></li>
                     </ul>
-
+                    <form id="contact-form" method="post" action="#" class="contact-form form">
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" placeholder="搜索问题" required="required" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="submit" value="Send" class="btn btn-outline-primary">
+                            </div>
+                        </div>
+                    </form>
                     <div class="copyright text-center text-md-left">
                         <p class="credit">
                             蜀ICP备19009579号<br/>地址&nbsp;:&nbsp;成都市世纪城南路599号<br/>蜀ICP备19009579号-1
