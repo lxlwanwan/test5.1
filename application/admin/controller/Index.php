@@ -16,6 +16,7 @@ class Index extends Common {
      * @return mixed 子页
      */
     public function welcome(){
+        $this->assign('time',time());
         return $this->fetch();
     }
 

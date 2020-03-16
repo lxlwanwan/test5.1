@@ -20,8 +20,7 @@ class Common extends Controller{
         if(empty($user)){
             $this->redirect('login/login');
         }
-
-        dump($user);
+        $this->assign('admin',$user);
     }
 
 
