@@ -2,6 +2,9 @@
 namespace app\admin\controller;
 
 
+use app\admin\model\LogList;
+use think\facade\Cookie;
+
 class Index extends Common {
 
     /**
@@ -37,5 +40,16 @@ class Index extends Common {
      */
     public function log_list(){
         return $this->fetch();
+    }
+
+
+    /**
+     * 退出
+     */
+    public function log_out(){
+        $user = Cookie::get('admin');
+        LogList::add_log($user,'退出了后台');
+        Cookie::delete('admin');
+        $this->redirect('login/login');
     }
 }
