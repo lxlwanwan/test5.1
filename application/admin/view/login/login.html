@@ -33,6 +33,7 @@
         var form = layui.form;
         form.on('submit(login)', function(data){
             $.post('{:url("login/login")}',{name:data.field.name,password:data.field.password},function (arr) {
+                console.log(arr); return false;
                 if(arr.err == 200){
                     window.location.href='{:url("index/index")}';
                 }else {
