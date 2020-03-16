@@ -21,8 +21,7 @@ class Common extends Controller{
             $this->redirect('login/login');
         }
 
-
-
+        dump($user);
     }
 
 
