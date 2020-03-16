@@ -30,7 +30,6 @@ class Index extends Common {
      * @return mixed 网站设置
      */
     public function setting(){
-        dump(111);die;
         return $this->fetch();
     }
 
