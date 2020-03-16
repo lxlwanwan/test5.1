@@ -1,6 +1,6 @@
 <?php
 namespace app\admin\controller;
-use think\Controller;
+use app\admin\model\Admin;
 use think\facade\Request;
 
 /**
@@ -9,7 +9,7 @@ use think\facade\Request;
  * Date: 2019/12/25
  * Time: 11:08
  */
-class Login extends Controller{
+class Login extends Common {
 
 
     /**
@@ -19,10 +19,8 @@ class Login extends Controller{
         if(Request::isGet()){
             return $this->fetch();
         }
-
-
-
-
+        $state = Admin::log_in(input());
+        return $state;
     }
 
 
