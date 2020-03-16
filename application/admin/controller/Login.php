@@ -17,7 +17,6 @@ class Login extends Controller{
      */
     public function login(){
         if(Request::isGet()){
-
             return $this->fetch();
         }
 
