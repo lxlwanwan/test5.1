@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller;
 use app\admin\model\Admin;
+use think\Controller;
 use think\facade\Request;
 
 /**
@@ -9,7 +10,7 @@ use think\facade\Request;
  * Date: 2019/12/25
  * Time: 11:08
  */
-class Login extends Common {
+class Login extends Controller {
 
 
     /**
