@@ -42,16 +42,6 @@
                             <cite>网站设置</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('网站设置','/index/setting.html')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>网站设置</cite></a>
-                    </li>
-                    <li>
-                        <a href="{:url('index/setting')}">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>网站设置</cite></a>
-                    </li>
-                    <li>
                         <a onclick="xadmin.add_tab('操作日志','{:url(\'index/log_list\')}')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>操作日志</cite></a>
@@ -103,12 +93,12 @@
                 <i class="layui-icon">&#xe68e;</i>我的桌面
             </li>
         </ul>
-        <!--<div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">-->
-        <!--<dl>-->
-        <!--<dd data-type="this">关闭当前</dd>-->
-        <!--<dd data-type="other">关闭其它</dd>-->
-        <!--<dd data-type="all">关闭全部</dd></dl>-->
-        <!--</div>-->
+        <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+        <dl>
+        <dd data-type="this">关闭当前</dd>
+        <dd data-type="other">关闭其它</dd>
+        <dd data-type="all">关闭全部</dd></dl>
+        </div>
         <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
                 <iframe src='{:url("index/welcome")}' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
