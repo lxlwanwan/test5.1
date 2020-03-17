@@ -59,4 +59,15 @@ class Index extends Common {
         Cookie::delete('admin');
         $this->redirect('login/login');
     }
+
+
+    /**
+     * 图标上传
+     */
+    public function img_update(){
+        $image=request()->file('img');
+        $img = $this->add_img($image,input('type',0));
+        return $img;
+    }
+
 }
