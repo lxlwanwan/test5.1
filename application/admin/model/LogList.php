@@ -28,13 +28,12 @@ class LogList extends Model{
         if(empty($data) || empty($content)){
             return false;
         }
-        dump(Request::ip());die;
         $arr=[];
         $arr['uid']=$data['id'];
         $arr['name']=$data['name'];
         $arr['type']=$type;
         $arr['content'] =$content;
-        $arr['id'] = Request::ip();
+        $arr['ip'] = Request::ip();
         $arr['time'] = time();
         $state =  self::create($arr);
 
