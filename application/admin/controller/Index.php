@@ -3,7 +3,9 @@ namespace app\admin\controller;
 
 
 use app\admin\model\LogList;
+use app\admin\model\WebStting;
 use think\facade\Cookie;
+use think\facade\Request;
 
 class Index extends Common {
 
@@ -30,7 +32,12 @@ class Index extends Common {
      * @return mixed 网站设置
      */
     public function setting(){
-        return $this->fetch();
+        if(Request::isGet()){
+            $this->assign('ting',WebStting::get_detail('web_key'));
+            $this->assign('key','web_key');
+            return $this->fetch();
+        }
+
     }
 
 
