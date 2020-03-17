@@ -33,6 +33,7 @@ class Index extends Common {
      */
     public function setting(){
         if(Request::isGet()){
+            dump($img_path = Env::get('root_path').'public/uploads/images');
             $this->assign('ting',WebSetting::get_detail(WebSetting::STEYE_SETTING));
             $this->assign('key',WebSetting::STEYE_SETTING);
             return $this->fetch();
