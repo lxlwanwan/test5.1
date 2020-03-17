@@ -67,7 +67,6 @@ class Index extends Common {
      */
     public function img_update(){
         $image=request()->file('img');
-        dump($image);die;
         $img = $this->add_img($image,input('type',0));
         return $img;
     }
