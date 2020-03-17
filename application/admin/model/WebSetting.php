@@ -12,6 +12,8 @@ use think\Model;
 
 class WebSetting extends Model{
 
+    //系统配置
+    const STEYE_SETTING = 'web_key';
 
     /**
      * content获取器
