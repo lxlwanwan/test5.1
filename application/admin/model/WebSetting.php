@@ -16,7 +16,7 @@ class WebSetting extends Model{
     //系统配置
     const STEYE_SETTING = 'web_key';
 
-    const FILE_PATH='public/uploads/images/';
+    const FILE_PATH='./public/uploads/images/';
 
     /**
      * content获取器
