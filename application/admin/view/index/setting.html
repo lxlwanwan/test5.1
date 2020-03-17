@@ -33,12 +33,12 @@
                     <span class="x-red">*</span>Logo：</label>
                 <div class="layui-upload">
                     <button type="button" class="layui-btn" id="logo1">上传图片</button>
-                    <input type="hidden" name="logo" id="logo" value="">
+                    <input type="hidden" name="logo" id="logo" value="{$ting.content['logo']}">
                     <div style="margin: 7px 0;">
-                        <img class="layui-upload-img" id="logo2" src="{$ting.content['logo']}">
+                        <img class="layui-upload-img" id="logo2" src="{$ting.content['img']}">
                         <p id="demoText"></p>
                     </div>
-                    <div class="layui-progress" lay-showpercent="true" lay-filter="demo">
+                    <div class="layui-progress" lay-showpercent="true" lay-filter="demo" style="display: none">
                         <div class="layui-progress-bar" lay-percent="0%"></div>
                     </div>
                 </div>
@@ -61,12 +61,12 @@
                 <label class="layui-form-label" style="width: 150px;">
                     <span class="x-red">*</span>备案信息：</label>
                 <div class="layui-input-inline">
-                    <textarea placeholder="网站备案信息" name="archival"  class="layui-textarea">{$ting.content['description']}</textarea>
+                    <textarea placeholder="网站备案信息" name="archival"  class="layui-textarea">{$ting.content['archival']}</textarea>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label" style="width: 150px;"></label>
-                <button class="layui-btn" lay-filter="add" lay-submit="">增加</button>
+                <button class="layui-btn" lay-filter="add" lay-submit="">提交</button>
             </div>
         </form>
     </div>
@@ -110,7 +110,8 @@
                 });
             },
             progress: function(n, elem){
-                var percent = n + '%' //获取进度百分比
+                $('.layui-progress').show();
+                var percent = n + '%'; //获取进度百分比
                 element.progress('demo', percent); //可配合 layui 进度条元素使用
 
                 //以下系 layui 2.5.6 新增
@@ -129,40 +130,5 @@
             }
         })
     });
-
-    // layui.use('element', function(){
-    //     var $ = layui.jquery
-    //         ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
-    //
-    //     //触发事件
-    //     var active = {
-    //         setPercent: function(){
-    //             //设置50%进度
-    //             element.progress('demo', '50%')
-    //         }
-    //         ,loading: function(othis){
-    //             var DISABLED = 'layui-btn-disabled';
-    //             if(othis.hasClass(DISABLED)) return;
-    //
-    //             //模拟loading
-    //             var n = 0, timer = setInterval(function(){
-    //                 n = n + Math.random()*10|0;
-    //                 if(n>100){
-    //                     n = 100;
-    //                     clearInterval(timer);
-    //                     othis.removeClass(DISABLED);
-    //                 }
-    //                 element.progress('demo', n+'%');
-    //             }, 300+Math.random()*1000);
-    //
-    //             othis.addClass(DISABLED);
-    //         }
-    //     };
-    //
-    //     $('.site-demo-active').on('click', function(){
-    //         var othis = $(this), type = $(this).data('type');
-    //         active[type] ? active[type].call(this, othis) : '';
-    //     });
-    // });
 </script>
 {/block}
