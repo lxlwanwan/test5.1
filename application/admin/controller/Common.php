@@ -1,5 +1,6 @@
 <?php
 namespace app\admin\controller;
+use app\admin\model\WebSetting;
 use think\App;
 use think\Controller;
 use think\facade\Cookie;
@@ -22,6 +23,7 @@ class Common extends Controller{
             $this->redirect('login/login');
         }
         $this->assign('admin',$user);
+        $this->assign('ting',WebSetting::get_detail(WebSetting::STEYE_SETTING));
     }
 
 

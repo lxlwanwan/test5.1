@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller;
 use app\admin\model\Admin;
+use app\admin\model\WebSetting;
 use think\Controller;
 use think\facade\Request;
 
@@ -18,6 +19,7 @@ class Login extends Controller {
      */
     public function login(){
         if(Request::isGet()){
+            $this->assign('ting',WebSetting::get_detail(WebSetting::STEYE_SETTING));
             return $this->fetch();
         }
         $state = Admin::log_in(input());
