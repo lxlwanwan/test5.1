@@ -89,7 +89,8 @@
         //普通图片上传
         var uploadInst = upload.render({
             elem: '#logo1'
-            ,url: '{:url("index/img_update",array("type"=>0))}' //改成您自己的上传接口
+            ,url: '{:url("index/img_update")}' //改成您自己的上传接口
+            ,data:{type:0}
             ,before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
