@@ -36,9 +36,14 @@ class Admin extends Model{
     }
 
 
+    /**
+     * 列表
+     */
+    public static function get_list(){
 
-
-
+        $list = self::all();
+        return $list;
+    }
 
 
 

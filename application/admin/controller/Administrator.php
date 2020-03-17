@@ -7,6 +7,9 @@
  */
 namespace app\admin\controller;
 
+use app\admin\model\Admin;
+use think\facade\Request;
+
 class Administrator extends Common{
 
 
@@ -14,8 +17,10 @@ class Administrator extends Common{
      * 管理列表
      */
     public function lists(){
-
-        return $this->fetch();
+        if(Request::isGet()){
+            $this->assign('list',Admin::get_list());
+            return $this->fetch();
+        }
     }
 
 
