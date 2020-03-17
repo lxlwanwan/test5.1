@@ -35,7 +35,7 @@
                     <button type="button" class="layui-btn" id="logo1">上传图片</button>
                     <input type="hidden" name="logo" id="logo" value="">
                     <div style="margin: 7px 0;">
-                        <img class="layui-upload-img" id="logo2" src="{$ting.content['img']}">
+                        <img class="layui-upload-img" id="logo2" src="{$ting.content['logo']}">
                         <p id="demoText"></p>
                     </div>
                     <div class="layui-progress" lay-showpercent="true" lay-filter="demo">
@@ -54,7 +54,7 @@
                 <label class="layui-form-label" style="width: 150px;">
                     <span class="x-red">*</span>摘要：</label>
                 <div class="layui-input-inline">
-                    <input type="text"  name="description" value="{$ting.content['description']}" lay-verify="required" autocomplete="off" class="layui-input">
+                    <textarea placeholder="网站摘要" name="description"  class="layui-textarea">{$ting.content['description']}</textarea>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -80,9 +80,15 @@
 
         //监听提交
         form.on('submit(add)', function (data) {
-
-
-                console.log(data);return false
+                $.post('{:url("index/setting")}',{key:data.field.key,home_name:data.field.home_name,home_url:data.field.home_url,admin_name:data.field.admin_name,logo:data.field.logo,keywords:data.field.keywords,description:data.field.description,archival:data.field.archival},function (arr) {
+                    if(arr.err==200){
+                        layer.msg(arr.msg,{icon:6,time:1000},function () {
+                            window.location.href=window.location.href;
+                        });return false;
+                    }else {
+                        layer.msg(arr.msg,{icon:5,time:1000});return false;
+                    }
+                });
         });
     });
 

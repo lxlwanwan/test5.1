@@ -38,7 +38,8 @@ class Index extends Common {
             $this->assign('key',WebSetting::STEYE_SETTING);
             return $this->fetch();
         }
-
+        $state = WebSetting::add_edit(input());
+        return $state;
     }
 
 
