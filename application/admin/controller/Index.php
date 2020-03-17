@@ -3,7 +3,7 @@ namespace app\admin\controller;
 
 
 use app\admin\model\LogList;
-use app\admin\model\WebStting;
+use app\admin\model\WebSetting;
 use think\facade\Cookie;
 use think\facade\Request;
 
@@ -33,7 +33,7 @@ class Index extends Common {
      */
     public function setting(){
         if(Request::isGet()){
-            $this->assign('ting',WebStting::get_detail('web_key'));
+            $this->assign('ting',WebSetting::get_detail('web_key'));
             $this->assign('key','web_key');
             return $this->fetch();
         }

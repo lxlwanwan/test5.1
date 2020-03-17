@@ -10,7 +10,7 @@ namespace app\admin\model;
 
 use think\Model;
 
-class WebStting extends Model{
+class WebSetting extends Model{
 
 
     /**
