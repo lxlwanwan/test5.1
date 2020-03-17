@@ -5,6 +5,7 @@ namespace app\admin\controller;
 use app\admin\model\LogList;
 use app\admin\model\WebSetting;
 use think\facade\Cookie;
+use think\facade\Env;
 use think\facade\Request;
 
 class Index extends Common {
