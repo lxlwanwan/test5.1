@@ -23,7 +23,6 @@ class WebSetting extends Model{
      */
     public function getContentAttr($value){
         if($value){
-            $value['img']='';
             $value = json_decode($value,true);
             if(isset($value['logo'])){
                 $value['img'] =self::FILE_PATH.$value['logo'];
