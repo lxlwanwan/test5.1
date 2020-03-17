@@ -35,7 +35,7 @@ class Common extends Controller{
         $img_path = Env::get('root_path').'public/uploads/images';
         if(!file_exists($img_path)){
             //检查是否有该文件夹，如果没有就创建，并给予最高权限
-            mkdir($img_path, 0777);
+            mkdir($img_path, 0777,true);
         }
         if($type ==0){
             $info = $file->validate(['ext'=>'jpg,png,gif'])->move($img_path);
