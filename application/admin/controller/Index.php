@@ -48,7 +48,12 @@ class Index extends Common {
      * @return mixed 操作日志
      */
     public function log_list(){
-        return $this->fetch();
+        if(Request::isGet()){
+            $this->assign('list',LogList::data_list(input()));
+            $this->assign('types',LogList::$types);
+            return $this->fetch();
+        }
+
     }
 
 
