@@ -16,12 +16,17 @@ class WebSetting extends Model{
     //系统配置
     const STEYE_SETTING = 'web_key';
 
+    const FILE_PATH='public/uploads/images/';
+
     /**
      * content获取器
      */
     public function getContentAttr($value){
         if($value){
             $value = json_decode($value,true);
+            if(isset($value['logo'])){
+                $value['logo'] =self::FILE_PATH.$value['logo'];
+            }
             return $value;
         }
         return [];

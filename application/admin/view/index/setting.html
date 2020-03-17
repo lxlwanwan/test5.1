@@ -83,7 +83,8 @@
                 $.post('{:url("index/setting")}',{key:data.field.key,home_name:data.field.home_name,home_url:data.field.home_url,admin_name:data.field.admin_name,logo:data.field.logo,keywords:data.field.keywords,description:data.field.description,archival:data.field.archival},function (arr) {
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:1000},function () {
-                            window.location.href=window.location.href;
+                            // window.location.href=window.location.href;
+                            location.reload();
                         });return false;
                     }else {
                         layer.msg(arr.msg,{icon:5,time:1000});return false;
