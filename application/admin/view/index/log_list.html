@@ -30,7 +30,7 @@
                     </form>
                 </div>
                 <div class="layui-card-header">
-                    <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+                    <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>删除全部</button>
                 </div>
                 <div class="layui-card-body layui-table-body layui-table-main">
                     <table class="layui-table" lay-data="{limit:30}">
@@ -88,7 +88,17 @@
 
 
     function delAll () {
-
+        layer.confirm('确定要全部删除吗？',function(){
+            $.post('{:url("index/log_list")}',{state:0},function (data) {
+                if(data.err ==200){
+                    layer.msg(data.msg,{icon:6,time:1000},function () {
+                        location.reload()
+                    });
+                }else {
+                    layer.msg(data.msg,{icon:5,time:2000});return false;
+                }
+            });
+        });
     }
 </script>
 {block

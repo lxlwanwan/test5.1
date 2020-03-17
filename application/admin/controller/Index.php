@@ -54,6 +54,8 @@ class Index extends Common {
             return $this->fetch();
         }
 
+        $state = LogList::del_all(input('state',0));
+        return $state;
     }
 
 

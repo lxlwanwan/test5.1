@@ -7,6 +7,8 @@
  */
 namespace app\admin\model;
 
+use think\Db;
+use think\facade\Cookie;
 use think\facade\Request;
 use think\Model;
 
@@ -59,6 +61,26 @@ class LogList extends Model{
         }
         $list = self::where($where)->order('time','desc')->paginate(30,false,['query'=>$query]);
         return $list;
+    }
+
+
+
+    /**
+     * 删除
+     */
+    public static function del_all($id){
+        if($id==0){
+            $state =Db::name('log_list')->delete(true);
+        }else{
+            $state =self::destroy($id);
+        }
+        if($state){
+            LogList::add_log(Cookie::get('admin'),'清空了日志列表');
+            return json(['err'=>200,'msg'=>'操作成功']);
+        }else{
+            return json(['err'=>201,'msg'=>'操作失败']);
+        }
+
     }
 
 
