@@ -12,7 +12,6 @@ use think\facade\Request;
 
 class Administrator extends Common{
 
-
     /**
      * 管理列表
      */
@@ -21,8 +20,21 @@ class Administrator extends Common{
             $this->assign('list',Admin::get_list());
             return $this->fetch();
         }
+        $state = Admin::edit_add(input());
+        return $state;
     }
 
 
+    /**
+     * 编辑
+     */
+    public function admin_edit(){
+        if(Request::isGet()){
+            $this->assign('one',Admin::get_detil(input('id',0)));
+            return $this->fetch();
+        }
+        $state = Admin::edit_add(input());
+        return $state;
+    }
 
 }
