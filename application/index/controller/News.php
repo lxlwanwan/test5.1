@@ -26,7 +26,7 @@ class News extends Controller{
         $job='\app\index\job\Test';
         $name['name']='liuxiao';
 
-        $state = Queue::push($job,$name,'liuxiao');
+        $state = Queue::push($job,$name,'a');
         dump($state);
 
         dump('6666666');die;
