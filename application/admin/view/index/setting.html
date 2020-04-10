@@ -34,13 +34,16 @@
                 <div class="layui-upload">
                     <button type="button" class="layui-btn" id="logo1">上传图片</button>
                     <input type="hidden" name="logo" id="logo" value="{$ting.content['logo']}">
-                    <div style="margin: 7px 0;">
-                        <img class="layui-upload-img" id="logo2" src="{$ting.content['img']}">
-                        <p id="demoText"></p>
-                    </div>
-                    <div class="layui-progress" lay-showpercent="true" lay-filter="demo" style="display: none">
-                        <div class="layui-progress-bar" lay-percent="0%"></div>
-                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;"></label>
+                <div style="margin: 7px 0;">
+                    <img class="layui-upload-img" id="logo2" src="{$ting.content['img']}">
+                    <p id="demoText"></p>
+                </div>
+                <div class="layui-progress" lay-showpercent="true" lay-filter="demo" style="display: none">
+                    <div class="layui-progress-bar" lay-percent="0%"></div>
                 </div>
             </div>
             <div class="layui-form-item">
