@@ -18,6 +18,7 @@ class Administrator extends Common{
     public function lists(){
         if(Request::isGet()){
             $this->assign('list',Admin::get_list());
+            $this->assign('state',Admin::SUPER_ADMIN);
             return $this->fetch();
         }
         $state = Admin::edit_add(input());

@@ -37,7 +37,7 @@
                                 <td>{$v.time|date='Y-m-d H:i:s'}</td>
                                 <td class="td-manage">
                                     <button class="layui-btn layui-btn-xs layui-btn-radius"  onclick="xadmin.open('编辑','{:url(\'administrator/edit_admin\',array(\'id\'=>{$v.id}))}')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    {if $v.id != Aadmin::SUPER_ADMIN}
+                                    {if $v.id != $state}
                                     <button class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-danger"  onclick="admin_del('{$v.id}')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
                                     {/if}
                                 </td>
