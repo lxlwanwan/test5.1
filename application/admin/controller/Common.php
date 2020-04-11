@@ -21,12 +21,7 @@ class Common extends Controller{
         parent::__construct($app);
         $user = Cookie::get('admin');
         if(empty($user)){
-            if(Request::isAjax()){
-                dump(111);die;
-            }else{
-                $this->redirect('login/login');
-            }
-
+            $this->redirect('login/login');
         }
         $this->assign('admin',$user);
         $this->assign('ting',WebSetting::get_detail(WebSetting::STEYE_SETTING));
