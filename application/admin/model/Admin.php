@@ -90,7 +90,9 @@ class Admin extends Model{
             $where[]=['name','eq',$data['name']];
             $rule = self::whereOr($where)->find();
         }
-        dump($rule);die;
+        if($rule){
+            return json(['err'=>201,'msg'=>'已经存在']);
+        }
         if(isset($input['id'])){
             $state = self::where('id',$input['id'])->update($data);
         }else{

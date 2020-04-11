@@ -9,7 +9,7 @@ namespace app\admin\controller;
 
 use app\admin\model\Admin;
 use app\admin\model\LogList;
-use think\Cookie;
+use think\facade\Cookie;
 use think\facade\Request;
 
 class Administrator extends Common{
