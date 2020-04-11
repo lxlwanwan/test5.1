@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{extend name="layout:layout" /}
+{block name="content"}
+<style>
+    .layui-upload-img{width: 92px; height: 92px; margin: 0 10px 10px 0;}
+</style>
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form">
+            <input type="hidden" name="key" value="{$key}">
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>姓名：</label>
+                <div class="layui-input-inline">
+                    <input type="text"  name="name" value="{$one['name']}" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>手机号：</label>
+                <div class="layui-input-inline">
+                    <input type="text"  name="phone" value="{$one['phone']}" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password"  value=""  autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>新密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password"  name="r_password" value="" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>状态：</label>
+                <div class="layui-input-inline">
+                    <input type="radio" name="state" value="0" lay-skin="primary" title="启用" {if condition="$one.state eq 0"} checked="checked" {/if}>
+                    <input type="radio" name="state" value="1" lay-skin="primary" title="禁用" {if condition="$one.state eq 1"} checked="checked" {/if}>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;"></label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'layer'],
+        function () {
+            $ = layui.jquery;
+            var form = layui.form,
+                layer = layui.layer;
 
-</body>
-</html>
+            //监听提交
+            form.on('submit(add)', function (data) {
+                $.post('{:url("index/setting")}',{key:data.field.key,home_name:data.field.home_name,home_url:data.field.home_url,admin_name:data.field.admin_name,logo:data.field.logo,keywords:data.field.keywords,description:data.field.description,archival:data.field.archival},function (arr) {
+                    if(arr.err==200){
+                        layer.msg(arr.msg,{icon:6,time:1000},function () {
+                            // window.location.href=window.location.href;
+                            location.reload();
+                        });return false;
+                    }else {
+                        layer.msg(arr.msg,{icon:5,time:1000});return false;
+                    }
+                });
+            });
+        });
+</script>
+{/block}

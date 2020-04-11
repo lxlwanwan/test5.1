@@ -69,8 +69,8 @@ class Admin extends Model{
         if(isset($input['password']) && $input['password']){
             $data['password']=password_hash($input['password'],PASSWORD_BCRYPT);
         }
-        if(isset($input['photo']) && $input['photo']){
-            $data['photo']=$input['photo'];
+        if(isset($input['phone']) && $input['phone']){
+            $data['phone']=$input['phone'];
         }
         if(isset($input['rule_id']) && is_numeric($input['rule_id'])){
             $data['rule_id']=$input['rule_id'];
@@ -78,6 +78,7 @@ class Admin extends Model{
         if(isset($input['state']) && is_numeric($input['state'])){
             $data['state']=$input['state'];
         }
+        $data['time'] = time();
         if(isset($input['id'])){
             $state = self::where('id',$input['id'])->update($data);
         }else{
