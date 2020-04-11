@@ -82,7 +82,7 @@ class Admin extends Model{
         }
         $data['time'] = time();
         if($arr){
-            $where[]=['id','neq',$data['id']];
+            $where[]=['id','neq',$input['id']];
             $where[]=['phone','eq',$data['phone']];
             $rule = self::where($where)->find();
         }else{
