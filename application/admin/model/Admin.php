@@ -58,7 +58,7 @@ class Admin extends Model{
     /**
      * 添加编辑
      */
-    public static function edit_add($input=[],$arr){
+    public static function edit_add($input=[],$arr=[]){
         if(empty($input)){
             return json(['err'=>201,'msg'=>'参数错误']);
         }

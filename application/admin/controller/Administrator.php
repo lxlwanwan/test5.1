@@ -47,8 +47,8 @@ class Administrator extends Common{
         if(Request::isGet()){
             return $this->fetch();
         }
-
-
+        $state = Admin::edit_add(input());
+        return $state;
 
     }
 
