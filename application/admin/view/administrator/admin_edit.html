@@ -18,13 +18,13 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label" style="width: 150px;">密码：</label>
+                <label class="layui-form-label" style="width: 150px;">新密码：</label>
                 <div class="layui-input-inline">
                     <input type="password" name="password"  value=""  autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label" style="width: 150px;">新密码：</label>
+                <label class="layui-form-label" style="width: 150px;">再次新密码：</label>
                 <div class="layui-input-inline">
                     <input type="password"  name="r_password" value="" autocomplete="off" class="layui-input">
                 </div>
@@ -53,6 +53,9 @@
 
             //监听提交
             form.on('submit(add)', function (data) {
+                if(data.field.password != data.field.r_password){
+                    layer.msg('2次密码输入不一致',{icon:5,time:1000});return false;
+                }
                 $.post('{:url("administrator/admin_edit")}',{id:data.field.id,name:data.field.name,phone:data.field.phone,password:data.field.password,r_password:data.field.r_password,state:data.field.state},function (arr) {
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:1000},function () {

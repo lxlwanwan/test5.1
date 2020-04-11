@@ -58,7 +58,7 @@ class Admin extends Model{
     /**
      * 添加编辑
      */
-    public static function edit_add($input=[]){
+    public static function edit_add($input=[],$arr){
         if(empty($input)){
             return json(['err'=>201,'msg'=>'参数错误']);
         }
@@ -66,8 +66,10 @@ class Admin extends Model{
         if(isset($input['name']) && $input['name']){
             $data['name']=$input['name'];
         }
-        if(isset($input['password']) && $input['password']){
-            $data['password']=password_hash($input['password'],PASSWORD_BCRYPT);
+        if((isset($input['password']) && $input['password']) && (isset($input['r_password']) && $input['r_password'])){
+            if($input['password'] == $input['r_password']){
+                $data['password']=password_hash($input['password'],PASSWORD_BCRYPT);
+            }
         }
         if(isset($input['phone']) && $input['phone']){
             $data['phone']=$input['phone'];

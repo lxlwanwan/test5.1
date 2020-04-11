@@ -35,9 +35,7 @@ class Administrator extends Common{
             $this->assign('one',$one);
             return $this->fetch();
         }
-        dump(input());die;
         $state = Admin::edit_add(input(),$one);
-
         return $state;
     }
 
