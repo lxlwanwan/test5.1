@@ -57,7 +57,6 @@
                     layer.msg('2次密码输入不一致',{icon:5,time:1000});return false;
                 }
                 $.post('{:url("administrator/admin_edit")}',{id:data.field.id,name:data.field.name,phone:data.field.phone,password:data.field.password,r_password:data.field.r_password,state:data.field.state},function (arr) {
-                    console.log(arr);return false;
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:2000},function () {
                             xadmin.close();
