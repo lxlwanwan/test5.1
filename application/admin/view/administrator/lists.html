@@ -85,9 +85,11 @@
 
     function admin_del(id) {
         layer.confirm('确认要删除该管理吗？',function(){
-            $.post('{:url("administrator/edit_rule")}',{id:id},function(data) {
+            $.post('{:url("administrator/del_admin")}',{id:id},function(data) {
                     if (data.err == 200) {
-                        layer.msg(data.msg, {icon: 1, time: 2000});
+                        layer.msg(data.msg, {icon: 1, time: 2000},function () {
+                            location.reload()
+                        });
                         return false;
                     } else {
                         layer.msg(data.msg, {icon: 5, time: 2000});

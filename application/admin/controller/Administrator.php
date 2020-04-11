@@ -8,6 +8,8 @@
 namespace app\admin\controller;
 
 use app\admin\model\Admin;
+use app\admin\model\LogList;
+use think\Cookie;
 use think\facade\Request;
 
 class Administrator extends Common{
@@ -51,5 +53,28 @@ class Administrator extends Common{
         return $state;
 
     }
+
+    /**
+     * 删除管理
+     * @return \think\response\Json
+     */
+    public function del_admin(){
+        $one =Admin::get_detil(input('id',0));
+        $name =$one['name'];
+        if(Admin::SUPER_ADMIN != $one['rule_id']){
+            $state = $one->delete();
+            if($state){
+                LogList::add_log(Cookie::get('admin'),'删除了管理员：'.$name);
+                return json(['err'=>200,'msg'=>'操作成功']);
+            }else{
+                return json(['err'=>201,'msg'=>'操作失败']);
+            }
+        }else{
+            return json(['err'=>201,'msg'=>'操作失败']);
+        }
+
+    }
+
+
 
 }
