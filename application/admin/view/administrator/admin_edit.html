@@ -12,22 +12,19 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label" style="width: 150px;">
-                    <span class="x-red">*</span>手机号：</label>
+                <label class="layui-form-label" style="width: 150px;">手机号：</label>
                 <div class="layui-input-inline">
                     <input type="text"  name="phone" value="{$one['phone']}" lay-verify="required|phone" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label" style="width: 150px;">
-                    <span class="x-red">*</span>密码：</label>
+                <label class="layui-form-label" style="width: 150px;">密码：</label>
                 <div class="layui-input-inline">
                     <input type="password" name="password"  value=""  autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label" style="width: 150px;">
-                    <span class="x-red">*</span>新密码：</label>
+                <label class="layui-form-label" style="width: 150px;">新密码：</label>
                 <div class="layui-input-inline">
                     <input type="password"  name="r_password" value="" autocomplete="off" class="layui-input">
                 </div>
@@ -56,11 +53,10 @@
 
             //监听提交
             form.on('submit(add)', function (data) {
-                $.post('{:url("index/setting")}',{key:data.field.key,home_name:data.field.home_name,home_url:data.field.home_url,admin_name:data.field.admin_name,logo:data.field.logo,keywords:data.field.keywords,description:data.field.description,archival:data.field.archival},function (arr) {
+                $.post('{:url("administrator/admin_edit")}',{id:data.field.id,name:data.field.name,phone:data.field.phone,password:data.field.password,r_password:data.field.r_password,state:data.field.state},function (arr) {
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:1000},function () {
-                            // window.location.href=window.location.href;
-                            location.reload();
+                            xadmin.close();
                         });return false;
                     }else {
                         layer.msg(arr.msg,{icon:5,time:1000});return false;

@@ -30,11 +30,14 @@ class Administrator extends Common{
      * 编辑
      */
     public function admin_edit(){
+        $one =Admin::get_detil(input('id',0));
         if(Request::isGet()){
-            $this->assign('one',Admin::get_detil(input('id',0)));
+            $this->assign('one',$one);
             return $this->fetch();
         }
-        $state = Admin::edit_add(input());
+        dump(input());die;
+        $state = Admin::edit_add(input(),$one);
+
         return $state;
     }
 
