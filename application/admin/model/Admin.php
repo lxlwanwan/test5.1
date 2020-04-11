@@ -81,6 +81,17 @@ class Admin extends Model{
             $data['state']=$input['state'];
         }
         $data['time'] = time();
+        if($arr){
+            $where[]=['id','neq',$arr['id']];
+            $where[]=['phone','eq',$arr['phone']];
+            $where1[]=['id','neq',$arr['id']];
+            $where1[]=['name','eq',$arr['name']];
+        }else{
+            $where[]=['phone','eq',$arr['phone']];
+            $where1[]=['name','eq',$arr['name']];
+        }
+        $rule = self::where($where)->whereOr($where1)->find();
+        dump($rule);die;
         if(isset($input['id'])){
             $state = self::where('id',$input['id'])->update($data);
         }else{
