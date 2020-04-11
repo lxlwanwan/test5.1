@@ -1,12 +1,9 @@
 {extend name="layout:layout" /}
 {block name="content"}
-<style>
-    .layui-upload-img{width: 92px; height: 92px; margin: 0 10px 10px 0;}
-</style>
 <div class="layui-fluid">
     <div class="layui-row">
         <form class="layui-form">
-            <input type="hidden" name="key" value="{$key}">
+            <input type="hidden" name="id" value="{$one.id}">
             <div class="layui-form-item">
                 <label class="layui-form-label" style="width: 150px;">
                     <span class="x-red">*</span>姓名：</label>
