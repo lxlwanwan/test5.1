@@ -84,13 +84,11 @@ class Admin extends Model{
         if($arr){
             $where[]=['id','neq',$arr['id']];
             $where[]=['phone','eq',$arr['phone']];
-            $where1[]=['id','neq',$arr['id']];
-            $where1[]=['name','eq',$arr['name']];
         }else{
             $where[]=['phone','eq',$arr['phone']];
             $where1[]=['name','eq',$arr['name']];
         }
-        $rule = self::where($where)->whereOr($where1)->find();
+        $rule = self::where($where)->whereOr($where1)->fetchSql();
         dump($rule);die;
         if(isset($input['id'])){
             $state = self::where('id',$input['id'])->update($data);
