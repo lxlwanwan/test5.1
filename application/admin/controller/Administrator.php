@@ -27,7 +27,7 @@ class Administrator extends Common{
 
 
     /**
-     * 编辑
+     * 编辑管理
      */
     public function admin_edit(){
         $one =Admin::get_detil(input('id',0));
@@ -37,6 +37,19 @@ class Administrator extends Common{
         }
         $state = Admin::edit_add(input(),$one);
         return $state;
+    }
+
+
+    /**
+     * @return mixed  添加管理
+     */
+    public function admin_add(){
+        if(Request::isGet()){
+            return $this->fetch();
+        }
+
+
+
     }
 
 }
