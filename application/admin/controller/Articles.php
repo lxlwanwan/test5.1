@@ -7,7 +7,7 @@
  */
 namespace app\admin\controller;
 
-class Article extends Common{
+class Articles extends Common{
 
 
 
@@ -22,7 +22,7 @@ class Article extends Common{
 
 
     /**
-     * 分类列表
+     * 文章列表
      */
     public function article_list(){
 
