@@ -102,6 +102,12 @@ class Article extends Model{
         if(isset($input['order']) && is_numeric($input['order'])){
             $data['order']=$input['order'];
         }
+        if(isset($input['show']) && is_numeric($input['show'])){
+            $data['show']=$input['show'];
+        }
+        if(isset($input['like']) && is_numeric($input['like'])){
+            $data['like']=$input['like'];
+        }
         if(isset($input['state']) && is_numeric($input['state'])){
             $data['state']=$input['state'];
         }

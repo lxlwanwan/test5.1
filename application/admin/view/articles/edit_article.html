@@ -23,7 +23,7 @@
                 <div class="layui-input-inline">
                     <select name="pid">
                         {volist name="type" id="v"}
-                        <option value="{$v.id}">{$v.name}</option>
+                        <option value="{$v.id}" {if condition="$one.pid eq $v.id"} selected="selected" {/if}>{$v.name}</option>
                         {/volist}
                     </select>
                 </div>
