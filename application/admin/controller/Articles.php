@@ -66,9 +66,11 @@ class Articles extends Common{
      */
     public function add_article(){
         if(Request::isGet()){
+            $this->assign('type',Classify::class_list([0]));
             return $this->fetch();
         }
-        dump(input());die;
+        $state = Article::add_text(input());
+        return $state;
     }
 
 
@@ -78,10 +80,14 @@ class Articles extends Common{
      * @return mixed
      */
     public function edit_article(){
+        $one = Article::get(input('id'));
         if(Request::isGet()){
+            $this->assign('type',Classify::class_list([0]));
+            $this->assign('one',$one);
             return $this->fetch();
         }
-
+        $state = Article::add_text(input(),$one);
+        return $state;
     }
 
 

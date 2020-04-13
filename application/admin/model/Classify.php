@@ -16,15 +16,20 @@ class Classify extends Model{
     /**
      * @return mixed 获取分类列表
      */
-    public static function class_list(){
+    public static function class_list($state =[0,1]){
 
-        $list = self::all();
+        $list = self::where('state','in',$state)->select();
         return $list;
     }
 
 
-
-
+    /**
+     * 添加编辑
+     * @param array $input
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
     public static function edit_add($input=[]){
         if(empty($input)){
             return json(['err'=>201,'msg'=>'参数错误']);

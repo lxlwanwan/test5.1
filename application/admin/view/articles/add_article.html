@@ -18,6 +18,17 @@
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>文章类型：</label>
+                <div class="layui-input-inline">
+                    <select name="pid">
+                        {volist name="type" id="v"}
+                        <option value="{$v.id}">{$v.name}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
                     <span class="x-red">*</span>封面：</label>
                 <div class="layui-upload">
                     <button type="button" class="layui-btn" id="logo1">上传图片</button>
@@ -27,7 +38,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label" style="width: 150px;"></label>
                 <div style="margin: 7px 0;">
-                    <img class="layui-upload-img" id="logo2" src="">
+                    <img class="layui-upload-img" id="logo2" style="display: none" src="">
                     <p id="demoText"></p>
                 </div>
                 <div class="layui-progress" lay-showpercent="true" lay-filter="demo" style="display: none">
@@ -100,7 +111,7 @@
             //监听提交
             form.on('submit(add)', function (data) {
                 var text = ue.getContent();
-                $.post('{:url("articles/add_article")}',{name:data.field.name,img:data.field.img,keyword:data.field.keyword,description:data.field.description,content:text,order:data.field.order,state:data.field.state},function (arr) {
+                $.post('{:url("articles/add_article")}',{name:data.field.name,img:data.field.img,keyword:data.field.keyword,description:data.field.description,content:text,order:data.field.order,state:data.field.state,pid:data.field.pid},function (arr) {
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:1000},function () {
                             // window.location.href=window.location.href;
@@ -126,6 +137,7 @@
             ,before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
+                    $('#logo2').show();
                     $('#logo2').attr('src', result); //图片链接（base64）
                 });
             },
