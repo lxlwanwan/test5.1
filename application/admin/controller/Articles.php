@@ -7,6 +7,7 @@
  */
 namespace app\admin\controller;
 
+use app\admin\model\Article;
 use app\admin\model\Classify;
 use think\facade\Request;
 
@@ -54,9 +55,35 @@ class Articles extends Common{
      */
     public function article_list(){
 
-
+        $this->assign('list',Article::lists(input()));
         return $this->fetch();
     }
+
+
+    /**
+     * 添加文章
+     * @return mixed
+     */
+    public function add_article(){
+        if(Request::isGet()){
+            return $this->fetch();
+        }
+
+    }
+
+
+
+    /**
+     * 编辑文章
+     * @return mixed
+     */
+    public function edit_article(){
+        if(Request::isGet()){
+            return $this->fetch();
+        }
+
+    }
+
 
 
 
