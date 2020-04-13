@@ -74,6 +74,7 @@ class Article extends Model{
             $data['state']=$input['state'];
         }
         if (isset($input['id'])){
+            $data['update_time'] = time();
             $state = self::where('id',$input['id'])->update($data);
             $txt ='更新了名称为：'.$one['name'].'文章';
         }else{
