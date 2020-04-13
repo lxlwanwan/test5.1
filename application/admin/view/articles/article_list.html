@@ -19,6 +19,7 @@
         </div>
         <div class="layui-inline layui-show-xs-block">
             <select name="pid">
+                <option value="">选择分类</option>
                 {volist name="type" id="v"}
                 <option value="{$v.id}" {if condition="$v.id eq $pid"} selected="selected" {/if}>{$v.name}</option>
                 {/volist}
@@ -45,7 +46,7 @@
                         <tr>
                             <th lay-data="{field:'name',width:300,fixed: 'left'}">名称</th>
                             <th lay-data="{field:'img',width:120}">封面</th>
-                            <th lay-data="{field:'img',width:120}">文章分类</th>
+                            <th lay-data="{field:'pid',width:120}">文章分类</th>
                             <th lay-data="{field:'show',width:80}">查看</th>
                             <th lay-data="{field:'like',width:80}">点赞</th>
                             <th lay-data="{field:'order',width:80}">排序</th>
