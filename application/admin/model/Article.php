@@ -24,6 +24,17 @@ class Article extends Model{
         return '';
     }
 
+    /**
+     * content获取器
+     */
+    public function getTypeNameAttr($value,$data){
+        $value ='';
+        if($data['pid']>0){
+            $value =Classify::where('id',$data['pid'])->value('name');
+        }
+        return $value;
+    }
+
 
     /**
      * 文章列表
@@ -34,6 +45,27 @@ class Article extends Model{
     public static function lists($input){
         $where=[];
         $query=[];
+        if(isset($input['name']) && $input['name']){
+            $where[]=['name','like','%'.$input['name'].'%'];
+            $query['name'] =$input['name'];
+        }
+        if(isset($input['pid']) && $input['pid']){
+            $where[]=['pid','eq',$input['pid']];
+            $query['pid'] =$input['pid'];
+        }
+        if(isset($input['start']) && $input['start']){
+            $start=['start','eq',$input['start']];
+            $query['start'] =$input['start'];
+        }
+        if(isset($input['end']) && $input['end']){
+            $end=['end','eq',$input['end']];
+            $query['end'] =$input['end'];
+        }else{
+            $end = strtotime(date('Y-m-d',time()).'+1 day');
+        }
+        if(isset($input['start']) && $input['start']){
+            $where[]=['time','between',[$start,$end]];
+        }
         $list =self::where($where)->field('*')->order('time','desc')->paginate(30,false,['query'=>$query]);
         return $list;
     }

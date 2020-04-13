@@ -3,8 +3,31 @@
 <div class="x-nav">
     <span class="layui-breadcrumb">
         <a>文章管理</a>
-        <a><cite>分类列表</cite></a>
+        <a><cite>文章列表</cite></a>
     </span>
+</div>
+<div class="layui-card-body ">
+    <form class="layui-form layui-col-space5">
+        <div class="layui-inline layui-show-xs-block">
+            <input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" value="{$start}" id="start">
+        </div>
+        <div class="layui-inline layui-show-xs-block">
+            <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" value="{$end}" id="end">
+        </div>
+        <div class="layui-inline layui-show-xs-block">
+            <input type="text" name="name"  placeholder="文章名称" value="{$name}" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-inline layui-show-xs-block">
+            <select name="pid">
+                {volist name="type" id="v"}
+                <option value="{$v.id}" {if condition="$v.id eq $pid"} selected="selected" {/if}>{$v.name}</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="layui-inline layui-show-xs-block">
+            <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+        </div>
+    </form>
 </div>
 <div class="layui-card-header">
     <button class="layui-btn" onclick="xadmin.open('添加文章','{:url(\'articles/add_article\')}')"><i class="layui-icon"></i>添加</button>
@@ -22,6 +45,7 @@
                         <tr>
                             <th lay-data="{field:'name',width:300,fixed: 'left'}">名称</th>
                             <th lay-data="{field:'img',width:120}">封面</th>
+                            <th lay-data="{field:'img',width:120}">文章分类</th>
                             <th lay-data="{field:'show',width:80}">查看</th>
                             <th lay-data="{field:'like',width:80}">点赞</th>
                             <th lay-data="{field:'order',width:80}">排序</th>
@@ -34,6 +58,7 @@
                         <tr>
                             <td>{$v.name}</td>
                             <td><a target="_blank" href="{$v.img}"><img src="{$v.img}" style="width: 50px;"></a></td>
+                            <td>{$v.type_name}</td>
                             <td>{$v.show}</td>
                             <td>{$v.like}</td>
                             <td>{$v.order}</td>
@@ -54,9 +79,20 @@
     </div>
 </div>
 <script>
-    layui.use(['form','table'], function(){
+    layui.use(['form','table','laydate'], function(){
         var table = layui.table;
         var form = layui.form;
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#start' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#end' //指定元素
+        });
 
         //监听状态操作
         form.on('switch(stateDemo)', function(obj){

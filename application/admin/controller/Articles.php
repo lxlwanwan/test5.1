@@ -56,6 +56,11 @@ class Articles extends Common{
     public function article_list(){
 
         $this->assign('list',Article::lists(input()));
+        $this->assign('type',Classify::class_list());
+        $this->assign('start',input('start'));
+        $this->assign('end',input('end'));
+        $this->assign('name',input('name'));
+        $this->assign('pid',input('pid'));
         return $this->fetch();
     }
 
