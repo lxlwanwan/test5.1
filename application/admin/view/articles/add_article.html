@@ -51,7 +51,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label" style="width: 150px;">
                     <span class="x-red">*</span>内容：</label>
-                <div class="layui-input-inline" style="width: 100%">
+                <div class="layui-input-inline" style="width: 75%">
                     <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
                 </div>
             </div>
@@ -77,6 +77,20 @@
     </div>
 </div>
 <script>
+     var ue = UE.getEditor('editor',{
+         toolbars: [[
+                 'fullscreen', 'source', 'undo', 'redo',
+                 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc',
+                 'rowspacingtop', 'rowspacingbottom', 'lineheight',
+                 'customstyle', 'paragraph', 'fontfamily', 'fontsize',
+                 'directionalityltr', 'directionalityrtl', 'indent',
+                 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify',  'touppercase', 'tolowercase', '|',
+                 'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter',
+                 'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment',  'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background',
+                 'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', 'preview'
+             ]
+         ],
+     });
     layui.use(['form', 'layer'],
         function () {
             $ = layui.jquery;
@@ -85,6 +99,7 @@
 
             //监听提交
             form.on('submit(add)', function (data) {
+                var text = ue.getContent();
                 $.post('{:url("index/setting")}',{key:data.field.key,home_name:data.field.home_name,home_url:data.field.home_url,admin_name:data.field.admin_name,logo:data.field.logo,keywords:data.field.keywords,description:data.field.description,archival:data.field.archival},function (arr) {
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:1000},function () {
@@ -135,8 +150,5 @@
             }
         })
     });
-
-    var ue = UE.getEditor('editor');
-
 </script>
 {/block}
