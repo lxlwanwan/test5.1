@@ -68,7 +68,7 @@ class Articles extends Common{
         if(Request::isGet()){
             return $this->fetch();
         }
-
+        dump(input());die;
     }
 
 

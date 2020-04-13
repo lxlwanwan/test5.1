@@ -86,7 +86,7 @@
                  'directionalityltr', 'directionalityrtl', 'indent',
                  'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify',  'touppercase', 'tolowercase', '|',
                  'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter',
-                 'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment',  'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background',
+                 'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'insertcode','background',
                  'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', 'preview'
              ]
          ],
@@ -100,7 +100,7 @@
             //监听提交
             form.on('submit(add)', function (data) {
                 var text = ue.getContent();
-                $.post('{:url("index/setting")}',{key:data.field.key,home_name:data.field.home_name,home_url:data.field.home_url,admin_name:data.field.admin_name,logo:data.field.logo,keywords:data.field.keywords,description:data.field.description,archival:data.field.archival},function (arr) {
+                $.post('{:url("articles/add_article")}',{name:data.field.name,img:data.field.img,keyword:data.field.keyword,description:data.field.description,content:text,order:data.field.order,state:data.field.state},function (arr) {
                     if(arr.err==200){
                         layer.msg(arr.msg,{icon:6,time:1000},function () {
                             // window.location.href=window.location.href;
