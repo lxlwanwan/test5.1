@@ -125,7 +125,7 @@
                             //监听提交
                             form.on('submit(add)', function (data) {
                                 // var text = ue.getContent();
-                                $.post('{:url("articles/add_article")}',{id:data.field.id,show:data.field.show,like:data.field.like,name:data.field.name,img:data.field.img,keyword:data.field.keyword,description:data.field.description,content:data.field.text,order:data.field.order,state:data.field.state,pid:data.field.pid},function (arr) {
+                                $.post('{:url("articles/edit_article")}',{id:data.field.id,show:data.field.show,like:data.field.like,name:data.field.name,img:data.field.img,keyword:data.field.keyword,description:data.field.description,content:data.field.text,order:data.field.order,state:data.field.state,pid:data.field.pid},function (arr) {
                                     if(arr.err==200){
                                         layer.msg(arr.msg,{icon:6,time:2000},function () {
                                             xadmin.close();

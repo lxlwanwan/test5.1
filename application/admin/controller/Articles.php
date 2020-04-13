@@ -91,7 +91,6 @@ class Articles extends Common{
             $this->assign('one',$one);
             return $this->fetch();
         }
-        dump($one);die;
         $state = Article::add_text(input(),$one);
         return $state;
     }

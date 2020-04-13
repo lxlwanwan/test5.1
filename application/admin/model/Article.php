@@ -77,7 +77,6 @@ class Article extends Model{
      * 添加文章
      */
     public static function add_text($input=[],$one=[]){
-        dump($one);die;
         if(empty($input)){
             return json(['err'=>201,'msg'=>'参数错误']);
         }
