@@ -7,6 +7,9 @@
  */
 namespace app\admin\controller;
 
+use app\admin\model\Classify;
+use think\facade\Request;
+
 class Articles extends Common{
 
 
@@ -16,8 +19,33 @@ class Articles extends Common{
      */
     public function type_list(){
 
-
+        $this->assign('list',Classify::class_list());
         return $this->fetch();
+    }
+
+
+    /**
+     * 添加分类
+     */
+    public function add_type(){
+        if(Request::isGet()){
+            return $this->fetch();
+        }
+        $state = Classify::edit_add(input());
+        return $state;
+    }
+
+
+    /**
+     * 编辑分类
+     */
+    public function edit_type(){
+        if(Request::isGet()){
+            $this->assign('one',Classify::get(input('id')));
+            return $this->fetch();
+        }
+        $state = Classify::edit_add(input());
+        return $state;
     }
 
 

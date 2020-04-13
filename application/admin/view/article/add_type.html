@@ -1,0 +1,56 @@
+{extend name="layout:layout" /}
+{block name="content"}
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>分类名称：</label>
+                <div class="layui-input-inline">
+                    <input type="text"  name="name" value="" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">排序：</label>
+                <div class="layui-input-inline">
+                    <input type="number"  name="order" value="0"  autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;">
+                    <span class="x-red">*</span>状态：</label>
+                <div class="layui-input-inline">
+                    <input type="radio" name="state" value="0" lay-skin="primary" title="启用" checked="checked">
+                    <input type="radio" name="state" value="1" lay-skin="primary" title="禁用">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 150px;"></label>
+                <button class="layui-btn" lay-filter="add" lay-submit="" type="button">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'layer'],
+        function () {
+            $ = layui.jquery;
+            var form = layui.form,
+                layer = layui.layer;
+
+            //监听提交
+            form.on('submit(add)', function (data) {
+                $.post('{:url("articles/add_type")}',{name:data.field.name,order:data.field.order,state:data.field.state},function (arr) {
+                    if(arr.err==200){
+                        layer.msg(arr.msg,{icon:6,time:2000},function () {
+                            xadmin.close();
+                            window.parent.location.reload();
+                        });return false;
+                    }else {
+                        layer.msg(arr.msg,{icon:5,time:1000});return false;
+                    }
+                });
+            });
+        });
+</script>
+{/block}
