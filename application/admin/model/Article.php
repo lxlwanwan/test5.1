@@ -77,6 +77,7 @@ class Article extends Model{
      * 添加文章
      */
     public static function add_text($input=[],$one=[]){
+        dump($one);die;
         if(empty($input)){
             return json(['err'=>201,'msg'=>'参数错误']);
         }
@@ -114,11 +115,11 @@ class Article extends Model{
         if (isset($input['id'])){
             $data['update_time'] = time();
             $state = self::where('id',$input['id'])->update($data);
-            $txt ='更新了名称为：'.$one['name'].'文章';
+            $txt ='更新了名称为：'.$one['name'].'的文章';
         }else{
             $data['time'] = time();
             $state =self::create($data);
-            $txt ='添加了名称为：'.$data['name'].'文章';
+            $txt ='添加了名称为：'.$data['name'].'的文章';
         }
         if($state){
             LogList::add_log(Cookie::get('admin'),$txt);
