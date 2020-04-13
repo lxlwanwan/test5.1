@@ -14,6 +14,18 @@ class Article extends Model{
 
 
     /**
+     * content获取器
+     */
+    public function getImgAttr($value){
+        if($value){
+            $value =WebSetting::FILE_PATH.$value;
+            return $value;
+        }
+        return '';
+    }
+
+
+    /**
      * 文章列表
      * @param $input
      * @return \think\Paginator

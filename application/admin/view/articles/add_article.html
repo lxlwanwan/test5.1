@@ -113,9 +113,9 @@
                 var text = ue.getContent();
                 $.post('{:url("articles/add_article")}',{name:data.field.name,img:data.field.img,keyword:data.field.keyword,description:data.field.description,content:text,order:data.field.order,state:data.field.state,pid:data.field.pid},function (arr) {
                     if(arr.err==200){
-                        layer.msg(arr.msg,{icon:6,time:1000},function () {
-                            // window.location.href=window.location.href;
-                            location.reload();
+                        layer.msg(arr.msg,{icon:6,time:2000},function () {
+                            xadmin.close();
+                            window.parent.location.reload();
                         });return false;
                     }else {
                         layer.msg(arr.msg,{icon:5,time:1000});return false;
