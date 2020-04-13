@@ -17,7 +17,7 @@ class Article extends Model{
     public static function lists($input){
         $where=[];
         $query=[];
-        $list =self::where($where)->field('a.*')->order('time','desc')->paginate(30,false,['query'=>$query]);
+        $list =self::where($where)->field('*')->order('time','desc')->paginate(30,false,['query'=>$query]);
         return $list;
     }
 
