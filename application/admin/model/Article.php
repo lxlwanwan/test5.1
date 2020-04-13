@@ -52,6 +52,9 @@ class Article extends Model{
         if(isset($input['content']) && $input['content']){
             $data['content']=$input['content'];
         }
+        if(isset($input['pid']) && is_numeric($input['pid'])){
+            $data['pid']=$input['pid'];
+        }
         if(isset($input['order']) && is_numeric($input['order'])){
             $data['order']=$input['order'];
         }
