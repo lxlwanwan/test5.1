@@ -18,7 +18,7 @@ class Article extends Model{
      */
     public function getImgAttr($value){
         if($value){
-            $value =WebSetting::FILE_PATH.$value;
+            $value =Entrepot::img($value);
             return $value;
         }
         return '';
@@ -85,7 +85,13 @@ class Article extends Model{
             $data['name']=$input['name'];
         }
         if(isset($input['img']) && $input['img']){
-            $data['img']=$input['img'];
+            if($one){
+                Entrepot::del_img($one->getData('img'),2);
+                Entrepot::where('id',$one->getData('img'))->update(['url'=>$input['img']]);
+            }else{
+                $img = Entrepot::create(['url'=>$input['img'],'time'=>time()]);
+                $data['img']=$img->id;
+            }
         }
         if(isset($input['keyword']) && $input['keyword']){
             $data['keyword']=$input['keyword'];
@@ -129,6 +135,23 @@ class Article extends Model{
 
     }
 
+
+    /**
+     * 删除文章
+     */
+    public static function del_art($id){
+        $img = self::where('id',$id)->find();
+        if($img){
+            Entrepot::del_img($img->getData('img'));
+        }
+        $state = self::destroy($id);
+        if($state){
+            LogList::add_log(Cookie::get('admin'),'删除了名称为：'.$img['name'].' 的文章');
+            return json(['err'=>200,'msg'=>'操作成功']);
+        }else{
+            return json(['err'=>201,'msg'=>'操作失败']);
+        }
+    }
 
 
 

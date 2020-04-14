@@ -96,6 +96,15 @@ class Articles extends Common{
     }
 
 
+    /**
+     * 删除文章
+     */
+    public function del_article(){
+        $state =Article::del_art(input('id'));
+        return $state;
+    }
+
+
 
 
 }
