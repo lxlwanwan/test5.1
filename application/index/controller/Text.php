@@ -10,7 +10,7 @@ class Text extends Common {
 
     public function index(){
         $key ='test_list';
-        $admin = Admin::where('id',1)->find()->toArray();
+        $admin = Admin::where('id',2)->find()->toArray();
         $redis = new Redis();
         if(input('type')){
             $a = $redis->hGet($key,$admin['id']);
