@@ -16,7 +16,7 @@ class Text extends Common {
             $a = $redis->hGet($key,$admin['id']);
         }else{
 
-            $a = $redis->hSet($key,$admin['id'],$admin);
+            $a = $redis->hSet($key,$admin['id'],json_encode($admin));
         }
         dump($a);
 //        $user= User::get(6);
