@@ -33,10 +33,9 @@ class Entrepot extends Model{
     public static function del_img($id,$type=1){
         $img = self::where('id',$id)->value('url');
         if($img){
-            $url =WebSetting::FILE_PATH.$img;
-            dump($url);die;
+            $url ='.'.WebSetting::FILE_PATH.$img;
             if(is_file($url)){
-
+                dump($url);
                 $b=unlink($url);
                 dump($b);die;
             }
