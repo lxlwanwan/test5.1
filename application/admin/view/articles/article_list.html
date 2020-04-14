@@ -71,6 +71,7 @@
                             <td>{$v.time|date='Y-m-d H:i:s'}</td>
                             <td class="td-manage">
                                 <button class="layui-btn layui-btn-xs layui-btn-radius"  onclick="xadmin.open('编辑','{:url(\'articles/edit_article\',array(\'id\'=>$v.id))}')" ><i class="layui-icon">&#xe642;</i>编辑</button>
+                                <button class="layui-btn layui-btn-xs layui-btn-danger"  onclick="del_art('{$v.id}')" ><i class="layui-icon">&#xe69d;</i>删除</button>
                             </td>
                         </tr>
                         {/volist}
@@ -123,9 +124,9 @@
 
     });
 
-    function admin_del(id) {
-        layer.confirm('确认要删除该管理吗？',function(){
-            $.post('{:url("administrator/del_admin")}',{id:id},function(data) {
+    function del_art(id) {
+        layer.confirm('确认要删除该文章吗？',function(){
+            $.post('{:url("articles/del_article")}',{id:id},function(data) {
                 if (data.err == 200) {
                     layer.msg(data.msg, {icon: 1, time: 2000},function () {
                         location.reload()
