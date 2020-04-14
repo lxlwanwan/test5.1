@@ -86,8 +86,6 @@ class Articles extends Common{
      * @return mixed
      */
     public function edit_article(){
-        $a = Entrepot::del_img(1,2);
-        dump($a);die;
         $one = Article::get(input('id'));
         if(Request::isGet()){
             $this->assign('type',Classify::class_list([0]));

@@ -35,9 +35,7 @@ class Entrepot extends Model{
         if($img){
             $url ='.'.WebSetting::FILE_PATH.$img;
             if(is_file($url)){
-                dump($url);
-                $b=unlink($url);
-                dump($b);die;
+                unlink($url);
             }
         }
         $state=true;
