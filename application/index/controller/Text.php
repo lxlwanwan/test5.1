@@ -12,8 +12,10 @@ class Text extends Common {
         $key ='test_list';
         $admin = Admin::where('id',4)->find()->toArray();
         $redis = new Redis();
-        if(input('type')){
+        if(input('type') ==1){
             $a = $redis->hGet($key,$admin['id']);
+        }else if(input('type') ==2){
+            $a = $redis->hDel($key,$admin['id']);
         }else{
             $a = $redis->hSet($key,$admin['id'],json_encode($admin));
         }
