@@ -12,7 +12,12 @@ class Text extends Common {
         $key ='test_list';
         $admin = Admin::where('id',1)->find()->toArray();
         $redis = new Redis();
-        $a = $redis->hSet($key,$admin['id'],$admin);
+        if(input('type')){
+            $a = $redis->hGet($key,$admin['id']);
+        }else{
+
+            $a = $redis->hSet($key,$admin['id'],$admin);
+        }
         dump($a);
 //        $user= User::get(6);
 //        $a=new User();
