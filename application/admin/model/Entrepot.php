@@ -34,8 +34,9 @@ class Entrepot extends Model{
         $img = self::where('id',$id)->value('url');
         if($img){
             $url =WebSetting::FILE_PATH.$img;
+            dump($url);
             if(is_file($url)){
-                dump($url);
+
                 $b=unlink($url);
                 dump($b);die;
             }
