@@ -9,6 +9,7 @@ namespace app\admin\controller;
 
 use app\admin\model\Article;
 use app\admin\model\Classify;
+use app\admin\model\Entrepot;
 use think\facade\Request;
 
 class Articles extends Common{
@@ -85,6 +86,8 @@ class Articles extends Common{
      * @return mixed
      */
     public function edit_article(){
+        $a = Entrepot::del_img(1);
+        dump($a);die;
         $one = Article::get(input('id'));
         if(Request::isGet()){
             $this->assign('type',Classify::class_list([0]));
