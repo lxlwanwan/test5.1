@@ -42,8 +42,8 @@ class Admin extends Migrator
             ->addColumn('name','string',['limit'=>30,'comment'=>'管理员名称'])
             ->addColumn('password','string',['limit'=>225,'comment'=>'管理员密码'])
             ->addColumn('phone','string',['limit'=>11,'default'=>'','comment'=>'手机号'])
-            ->addColumn('rule_id','string',['limit'=>2,'default'=>0,'comment'=>'管理员角色'])
-            ->addColumn('time','string',['limit'=>10,'default'=>0,'comment'=>'创建时间'])
+            ->addColumn('rule_id','integer',['limit'=>2,'default'=>0,'comment'=>'管理员角色'])
+            ->addColumn('time','integer',['limit'=>10,'default'=>0,'comment'=>'创建时间'])
             ->addColumn('state','integer',['limit'=>2,'default'=>0,'comment'=>'状态：0正常，1禁用'])
             ->create();
     }
